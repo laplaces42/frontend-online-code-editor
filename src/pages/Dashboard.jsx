@@ -11,20 +11,22 @@ const Dashboard = () => {
   const [projects, setProjects] = useState();
   const [invalidTitle, setInvalidTitle] = useState(false);
   // const backendURL = process.env.BACKEND_URL
-  const backendURL = "https://backend-online-code-editor-production.up.railway.app"
-  
+  const backendURL =
+    "https://backend-online-code-editor-production.up.railway.app";
 
   useEffect(() => {
-    fetch(`${backendURL}/dashboard/${id}`).then((result) => {
-      if (result.ok) {
-        result.json().then((data) => {
-          setUserData(data.data.user);
-          setProjects([...data.data.projects]);
-        });
-      } else {
-        navigate("/Error404");
+    fetch(`${backendURL}/dashboard/${id}`, { credentials: "include" }).then(
+      (result) => {
+        if (result.ok) {
+          result.json().then((data) => {
+            setUserData(data.data.user);
+            setProjects([...data.data.projects]);
+          });
+        } else {
+          navigate("/Error404");
+        }
       }
-    });
+    );
   }, []);
 
   const checkProjectName = (projectName) => {
@@ -53,17 +55,19 @@ const Dashboard = () => {
     });
   };
 
-
   const handleDeleteProject = (projectId) => {
     const fetchData = async () => {
       try {
-        const result = await fetch(`${backendURL}/dashboard/${id}/delete-project`, {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ userId: userData._id, projectId }),
-        });
+        const result = await fetch(
+          `${backendURL}/dashboard/${id}/delete-project`,
+          {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ userId: userData._id, projectId }),
+          }
+        );
         const data = await result.json();
 
         if (result.ok) {
@@ -87,7 +91,6 @@ const Dashboard = () => {
       navigate("/");
     });
   };
-
 
   if (!userData) {
     return <h1>Loading</h1>;
@@ -122,7 +125,7 @@ const Dashboard = () => {
                   setNewProject(false);
                   setTitle("");
                   setDescription("");
-                  setInvalidTitle(false)
+                  setInvalidTitle(false);
                 }}
                 className="screen-dim"
               ></div>

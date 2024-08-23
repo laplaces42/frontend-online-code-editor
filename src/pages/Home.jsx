@@ -38,7 +38,7 @@ const Home = () => {
       });
     });
   };
-  console.log(true)
+  
   return (
     <div className="home">
       <div
