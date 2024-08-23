@@ -10,6 +10,7 @@ const Home = () => {
   const [accountPage, setAccountPage] = useState(false);
   const navigate = useNavigate();
   const [flipped, setFlipped] = useState(false);
+  const backendURL = process.env.REACT_APP_BACKEND_URL
 
   const handleFlip = () => {
     setFlipped(!flipped);
@@ -18,7 +19,7 @@ const Home = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    fetch(`/${account}`, {
+    fetch(`${backendURL}/${account}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

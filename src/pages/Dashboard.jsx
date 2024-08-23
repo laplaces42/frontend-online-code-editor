@@ -10,10 +10,11 @@ const Dashboard = () => {
   const navigate = useNavigate();
   const [projects, setProjects] = useState();
   const [invalidTitle, setInvalidTitle] = useState(false);
+  const backendURL = process.env.REACT_APP_BACKEND_URL
   
 
   useEffect(() => {
-    fetch(`/dashboard/${id}`).then((result) => {
+    fetch(`${backendURL}/dashboard/${id}`).then((result) => {
       if (result.ok) {
         result.json().then((data) => {
           setUserData(data.data.user);
@@ -35,7 +36,7 @@ const Dashboard = () => {
 
   const handleNewProject = () => {
     setNewProject(false);
-    fetch(`/dashboard/${id}/new-project`, {
+    fetch(`${backendURL}/dashboard/${id}/new-project`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -55,7 +56,7 @@ const Dashboard = () => {
   const handleDeleteProject = (projectId) => {
     const fetchData = async () => {
       try {
-        const result = await fetch(`/dashboard/${id}/delete-project`, {
+        const result = await fetch(`${backendURL}/dashboard/${id}/delete-project`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
@@ -81,7 +82,7 @@ const Dashboard = () => {
   };
 
   const handleLogout = () => {
-    fetch(`/dashboard/${id}/logout`).then((result) => {
+    fetch(`${backendURL}/dashboard/${id}/logout`).then((result) => {
       navigate("/");
     });
   };

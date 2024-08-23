@@ -36,11 +36,12 @@ function Project() {
   const [fileSelected, setFileSelected] = useState(true);
   const [saveLog, setSaveLog] = useState([]);
   const [sessionLog, setSessionLog] = useState([]);
+  const backendURL = process.env.REACT_APP_BACKEND_URL
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const result = await fetch(`/projects/${id}`);
+        const result = await fetch(`${backendURL}/projects/${id}`);
         const data = await result.json();
         setUserData(data.data.account);
         setProjectData(data.data.project);
@@ -97,7 +98,7 @@ function Project() {
   function saveProject(entries) {
     const fetchData = async () => {
       try {
-        const result = await fetch(`/projects/${id}`, {
+        const result = await fetch(`${backendURL}/projects/${id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
