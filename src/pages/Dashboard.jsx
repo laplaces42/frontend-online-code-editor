@@ -15,7 +15,7 @@ const Dashboard = () => {
     "https://backend-online-code-editor-production.up.railway.app";
 
   useEffect(() => {
-    fetch(`${backendURL}/dashboard/${id}`, { credentials: true }).then(
+    fetch(`${backendURL}/dashboard/${id}`, { credentials: "true" }).then(
       (result) => {
         if (result.ok) {
           result.json().then((data) => {
