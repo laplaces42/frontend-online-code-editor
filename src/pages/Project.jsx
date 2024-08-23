@@ -36,7 +36,8 @@ function Project() {
   const [fileSelected, setFileSelected] = useState(true);
   const [saveLog, setSaveLog] = useState([]);
   const [sessionLog, setSessionLog] = useState([]);
-  const backendURL = process.env.REACT_APP_BACKEND_URL
+  const backendURL = "backend-online-code-editor-production.up.railway.app"
+  
 
   useEffect(() => {
     const fetchData = async () => {

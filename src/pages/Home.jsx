@@ -10,7 +10,10 @@ const Home = () => {
   const [accountPage, setAccountPage] = useState(false);
   const navigate = useNavigate();
   const [flipped, setFlipped] = useState(false);
-  const backendURL = process.env.REACT_APP_BACKEND_URL
+  // const backendURL = process.env.REACT_APP_BACKEND_URL
+  const backendURL = "backend-online-code-editor-production.up.railway.app"
+  console.log(backendURL)
+  
 
   const handleFlip = () => {
     setFlipped(!flipped);
@@ -35,7 +38,7 @@ const Home = () => {
       });
     });
   };
-
+  console.log(true)
   return (
     <div className="home">
       <div
