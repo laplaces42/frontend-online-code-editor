@@ -11,7 +11,7 @@ const Home = () => {
   const navigate = useNavigate();
   const [flipped, setFlipped] = useState(false);
   // const backendURL = process.env.REACT_APP_BACKEND_URL
-  const backendURL = "backend-online-code-editor-production.up.railway.app"
+  const backendURL = "https://backend-online-code-editor-production.up.railway.app/"
   console.log(backendURL)
   
 
