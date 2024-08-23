@@ -36,9 +36,9 @@ function Project() {
   const [fileSelected, setFileSelected] = useState(true);
   const [saveLog, setSaveLog] = useState([]);
   const [sessionLog, setSessionLog] = useState([]);
-  // const backendURL = "https://backend-online-code-editor-production.up.railway.app/"
-  const backendURL = process.env.BACKEND_URL
-  
+  const backendURL =
+    "https://backend-online-code-editor-production.up.railway.app";
+  // const backendURL = process.env.BACKEND_URL
 
   useEffect(() => {
     const fetchData = async () => {
