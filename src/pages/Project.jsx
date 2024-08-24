@@ -43,7 +43,9 @@ function Project() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const result = await fetch(`${backendURL}/projects/${id}`);
+        const result = await fetch(`${backendURL}/projects/${id}`, {
+          credentials: "include",
+        });
         const data = await result.json();
         setUserData(data.data.account);
         setProjectData(data.data.project);
@@ -101,6 +103,7 @@ function Project() {
     const fetchData = async () => {
       try {
         const result = await fetch(`${backendURL}/projects/${id}`, {
+          credentials: "include",
           method: "PUT",
           headers: {
             "Content-Type": "application/json",

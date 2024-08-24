@@ -40,6 +40,7 @@ const Dashboard = () => {
   const handleNewProject = () => {
     setNewProject(false);
     fetch(`${backendURL}/dashboard/${id}/new-project`, {
+      credentials: "include",
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -61,6 +62,7 @@ const Dashboard = () => {
         const result = await fetch(
           `${backendURL}/dashboard/${id}/delete-project`,
           {
+            credentials: "include",
             method: "DELETE",
             headers: {
               "Content-Type": "application/json",
@@ -87,7 +89,9 @@ const Dashboard = () => {
   };
 
   const handleLogout = () => {
-    fetch(`${backendURL}/dashboard/${id}/logout`).then((result) => {
+    fetch(`${backendURL}/dashboard/${id}/logout`, {
+      credentials: "include",
+    }).then((result) => {
       navigate("/");
     });
   };
