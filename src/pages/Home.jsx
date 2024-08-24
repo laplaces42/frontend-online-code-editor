@@ -27,7 +27,7 @@ const Home = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      credentials: "include",
+      // credentials: "include",
       body: JSON.stringify({ email, username, password }),
     }).then((result) => {
       result.json().then((data) => {
